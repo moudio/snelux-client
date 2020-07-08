@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import Loading from '../../pictures/loading.gif';
 
 function TopTrending() {
   const [trendings, setTrendings] = useState([]);
   useEffect(() => {
     fetch('./data.json')
       .then((response) => response.json())
-      .then((response) => setTrendings(response));
+
+      .then((response) => {
+        setTimeout(() => {
+          setTrendings(response);
+        }, 2000);
+      });
   }, []);
   if (trendings.length <= 0) {
     return (
       <div>
-        <h1>Top Trending</h1>
+        <h1>Fetching trending products</h1>
+        <img src={Loading} alt="loading trending products" />
       </div>
     );
   } else {
