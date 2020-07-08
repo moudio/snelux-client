@@ -1,0 +1,10 @@
+.welcome-header {
+  background-color: rebeccapurple;
+  height: 600px;
+}
+
+.welcome-header-shop-now {
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: red;
+}

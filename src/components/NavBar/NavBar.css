@@ -1,10 +1,30 @@
-nav ul {
+.NavBar {
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+}
+.NavBar ul {
   list-style-type: none;
+  padding-left: 0;
 }
 
-nav ul li a {
+.NavBar ul li a {
   text-decoration: none;
+}
+
+.left-nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: right;
+}
+
+.left-nav,
+.right-nav {
+  width: 25%;
+}
+
+.center-nav {
+  width: 50%;
+}
+
+.right-nav {
+  justify-content: center;
 }
