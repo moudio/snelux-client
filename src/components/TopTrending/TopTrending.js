@@ -7,11 +7,25 @@ function TopTrending() {
       .then((response) => response.json())
       .then((response) => setTrendings(response));
   }, []);
-  return (
-    <div>
-      <h1>Top Trending</h1>
-    </div>
-  );
+  if (trendings.length <= 0) {
+    return (
+      <div>
+        <h1>Top Trending</h1>
+      </div>
+    );
+  } else {
+    return (
+      <>
+        <h1> We have trending products</h1>
+        {trendings.map((trending) => (
+          <>
+            <h1>{trending.name}</h1>
+            <p>Price: {trending.price}</p>
+          </>
+        ))}
+      </>
+    );
+  }
 }
 
 export default TopTrending;
