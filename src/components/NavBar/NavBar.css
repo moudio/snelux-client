@@ -8,6 +8,7 @@
 
 .NavBar ul li a {
   text-decoration: none;
+  color: black;
 }
 
 .left-nav {
@@ -16,15 +17,19 @@
   align-items: right;
 }
 
-.left-nav,
-.right-nav {
+.left-nav {
   width: 25%;
 }
 
+.right-nav {
+  width: 20%;
+}
+
 .center-nav {
-  width: 50%;
+  width: 60%;
 }
 
 .right-nav {
-  justify-content: center;
+  display: flex;
+  justify-content: space-around;
 }

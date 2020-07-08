@@ -1,0 +1,14 @@
+ 
+ [   {
+        "name": "Adidas Stan Smith", 
+        "price": "88"
+    },
+
+    {"name": "Adidas Predator", 
+      "price": "60"
+   }, 
+    {   
+    "name": "Nike Predator", 
+    "price": "45"
+    }
+ ]
