@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Loading from '../../pictures/loading.gif';
+import StanSmith from '../../pictures/stan_smith.jpg';
+import './TopTrending.css';
 
 function TopTrending() {
   const [trendings, setTrendings] = useState([]);
@@ -24,12 +26,15 @@ function TopTrending() {
     return (
       <>
         <h1> We have trending products</h1>
-        {trendings.map((trending) => (
-          <>
-            <h1>{trending.name}</h1>
-            <p>Price: {trending.price}</p>
-          </>
-        ))}
+        <div className="trending-products">
+          {trendings.map((trending, index) => (
+            <div className="trending">
+              <img src={StanSmith} alt="Stan Smith" />
+              <h1>{trending.name}</h1>
+              <p>Price: {trending.price}</p>
+            </div>
+          ))}
+        </div>
       </>
     );
   }

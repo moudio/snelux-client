@@ -21,7 +21,9 @@ const NavBar = () => {
       </ul>
       <ul className="center-nav">
         <li>
-          <Link>SneLux</Link>
+          <Link to="/" className="home-logo">
+            SneLux
+          </Link>
         </li>
       </ul>
       <ul className="right-nav">

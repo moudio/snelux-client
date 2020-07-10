@@ -4,32 +4,36 @@
 .NavBar ul {
   list-style-type: none;
   padding-left: 0;
+  align-items: center;
 }
 
 .NavBar ul li a {
   text-decoration: none;
   color: black;
 }
+.NavBar ul li a:hover {
+  text-decoration: underline;
+}
 
 .left-nav {
+  width: 25%;
   display: flex;
   justify-content: space-evenly;
   align-items: right;
 }
 
-.left-nav {
-  width: 25%;
+.center-nav {
+  width: 60%;
+  justify-content: center;
+  align-items: center;
 }
 
 .right-nav {
   width: 20%;
-}
-
-.center-nav {
-  width: 60%;
-}
-
-.right-nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+}
+
+.home-logo {
+  font-size: 30px;
 }
