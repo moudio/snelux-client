@@ -1,13 +1,31 @@
 .welcome-header {
-  background-color: rebeccapurple;
+  background: linear-gradient(
+      rgba(0.8, 0.8, 0.8, 0.5),
+      rgba(0.8, 0.8, 0.8, 0.6)
+    ),
+    url('../../pictures/hero.jpeg');
   height: 600px;
   display: flex;
   align-items: center;
+  background-size: cover;
+  background-position: center;
   justify-content: center;
 }
 
 .welcome-header-shop-now {
   text-decoration: none;
   padding: 10px 20px;
-  background-color: red;
+  background-color: #06aed5;
+}
+
+.welcome-header-content {
+  color: white;
+}
+
+.welcome-header-content h1 {
+  font-size: 50px;
+}
+
+.welcome-header-content p {
+  font-size: 30px;
 }

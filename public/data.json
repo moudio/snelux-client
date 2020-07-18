@@ -1,14 +1,16 @@
  
  [   {
         "name": "Adidas Stan Smith", 
-        "price": "88"
+        "price": 88, 
+        "alt": "stan_smith"
     },
 
     {"name": "Adidas Predator", 
-      "price": "60"
+      "price": 60,
+      "alt": "pre"
    }, 
     {   
     "name": "Nike Predator", 
-    "price": "45"
+    "price": 45
     }
  ]

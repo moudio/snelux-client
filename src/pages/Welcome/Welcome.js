@@ -1,8 +1,9 @@
 import React from 'react';
 import './Welcome.css';
-import TopTrending from '../../components/TopTrending/TopTrending';
 import { Link } from 'react-router-dom';
-function Welcome() {
+import TopTrending from '../../components/TopTrending/TopTrending';
+
+function Welcome({ trendings }) {
   return (
     <div>
       <header className="welcome-header">
@@ -12,7 +13,7 @@ function Welcome() {
           <Link className="welcome-header-shop-now">Shop Now</Link>
         </div>
       </header>
-      <TopTrending />
+      <TopTrending trendings={trendings} />
     </div>
   );
 }
