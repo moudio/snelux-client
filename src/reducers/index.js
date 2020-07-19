@@ -1,5 +1,5 @@
 const defaultState = {
-  user: {},
+  user: null,
 };
 const userState = (state = defaultState, action) => {
   return state;

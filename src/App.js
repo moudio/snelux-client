@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Welcome from './pages/Welcome/Welcome';
@@ -35,4 +36,8 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {};
+
+const mapDispatchToProps = (dispatch) => {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
