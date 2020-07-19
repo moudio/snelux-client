@@ -2,8 +2,8 @@ const initialState = {
   products: null,
 };
 
-const productReducer = (state = initialState, action) => {
+const productsReducer = (state = initialState, action) => {
   return state;
 };
 
-export default productReducer;
+export default productsReducer;

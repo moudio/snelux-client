@@ -1,10 +1,9 @@
-const { combineReducers } = require('redux');
-
 import { combineReducers } from 'redux';
+
 import userReducer from './userReducer';
-import productReducer from './productsReducer';
+import productsReducer from './productsReducer';
 
 export default combineReducers({
   userReducer,
-  productReducer,
+  productsReducer,
 });

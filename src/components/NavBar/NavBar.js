@@ -5,17 +5,21 @@ import { FaShoppingCart } from 'react-icons/fa';
 import './NavBar.css';
 
 const NavBar = () => (
-  <nav className="NavBar">
+  <nav className="NavBar" data-testid="navigation">
     <ul className="left-nav">
       <li>
         {' '}
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/products">Products</Link>
+        <Link to="/products" data-testid="products-nav-link">
+          Products
+        </Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/login" data-testid="login">
+          Login
+        </Link>
       </li>
     </ul>
     <ul className="center-nav">
