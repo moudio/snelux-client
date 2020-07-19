@@ -1,8 +1,10 @@
-export const defaultState = {
-  user: null,
-};
-const userState = (state = defaultState, action) => {
-  return state;
-};
+const { combineReducers } = require('redux');
 
-export default userState;
+import { combineReducers } from 'redux';
+import userReducer from './userReducer';
+import productReducer from './productsReducer';
+
+export default combineReducers({
+  userReducer,
+  productReducer,
+});

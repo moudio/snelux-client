@@ -2,7 +2,9 @@ import React from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { defaultState as reducerInitialState, reducer } from './reducers/index';
+import userState, {
+  defaultState as reducerInitialState,
+} from '../reducers/index';
 
 function render(
   ui,
