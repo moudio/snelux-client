@@ -1,4 +1,4 @@
-const defaultState = {
+export const defaultState = {
   user: null,
 };
 const userState = (state = defaultState, action) => {
