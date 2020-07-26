@@ -1,5 +1,7 @@
 .NavBar {
   display: flex;
+  background-color: white;
+  border-bottom: 1px solid black;
 }
 .NavBar ul {
   list-style-type: none;

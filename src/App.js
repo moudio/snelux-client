@@ -6,6 +6,7 @@ import Welcome from './pages/Welcome/Welcome';
 import Login from './pages/Login';
 import './App.css';
 import Products from './components/Products/Products';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [trendings, setTrendings] = useState([]);
