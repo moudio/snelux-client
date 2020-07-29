@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Welcome from './pages/Welcome/Welcome';
 import Login from './pages/Login/Login';
+import Signup from './pages/Signup/Signup';
 import './App.css';
 import Products from './components/Products/Products';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -31,6 +32,7 @@ function App() {
           </Route>
           <Route exact path="/products" component={Products} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
         </Switch>
       </Router>
     </div>
