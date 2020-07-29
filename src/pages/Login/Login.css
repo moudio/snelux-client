@@ -1,0 +1,36 @@
+.login-div-parent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 900px;
+  background-color: #d0d0ce;
+}
+
+.login-account-title {
+  width: 100%;
+}
+
+.form-and-background-container {
+  background-color: burlywood;
+  border-radius: 8px;
+  height: 500px;
+}
+
+.inner-form-container {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.form-picture-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('../../pictures/form_background.jpeg');
+  background-position: center;
+  background-size: cover;
+}

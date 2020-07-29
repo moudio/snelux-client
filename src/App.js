@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Welcome from './pages/Welcome/Welcome';
-import Login from './pages/Login';
+import Login from './pages/Login/Login';
 import './App.css';
 import Products from './components/Products/Products';
 import 'bootstrap/dist/css/bootstrap.min.css';
