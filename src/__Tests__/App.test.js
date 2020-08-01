@@ -29,4 +29,9 @@ describe('tests the App renders the different pages', () => {
     fireEvent.click(screen.getByTestId('products-nav-link'));
     expect(screen.getByTestId('all-products-div')).toBeInTheDocument();
   });
+
+  test('renders the signup page from the navigation', () => {
+    fireEvent.click(screen.getByTestId('signup'));
+    expect(screen.getByTestId('signup-div')).toBeInTheDocument();
+  });
 });

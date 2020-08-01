@@ -5,7 +5,7 @@ function Signup() {
   return (
     <div className="signup-div">
       <div className="register-form">
-        <div className="form">
+        <form className="form">
           <div className="note">
             <p>Create a new account</p>
           </div>
@@ -43,11 +43,11 @@ function Signup() {
                 </div>
               </div>
             </div>
-            <button type="button" className="btnSubmit">
+            <button type="submit" className="btnSubmit">
               Submit
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

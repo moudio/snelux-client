@@ -34,7 +34,9 @@ const NavBar = () => (
         <Link>Shop Now</Link>
       </li>
       <li>
-        <Link to="/signup">Register</Link>
+        <Link to="/signup" data-testid="signup">
+          Register
+        </Link>
       </li>
       <li>
         <Link>
