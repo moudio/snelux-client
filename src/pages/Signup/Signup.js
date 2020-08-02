@@ -3,7 +3,7 @@ import './Signup.css';
 
 function Signup() {
   return (
-    <div className="signup-div">
+    <div className="signup-div" data-testid="signup-div">
       <div className="register-form">
         <form className="form">
           <div className="note">
