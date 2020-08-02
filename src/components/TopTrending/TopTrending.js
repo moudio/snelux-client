@@ -14,7 +14,7 @@ function TopTrending({ trendings }) {
   }
   return (
     <>
-      <h1> We have trending products</h1>
+      <h1> Trending products</h1>
       <div className="trending-products">
         {trendings.map((trending, index) => (
           <div className="trending">

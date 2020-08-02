@@ -8,7 +8,11 @@
 }
 
 .trending {
-  width: 25%;
+  max-width: 30%;
+}
+
+.trending h1 {
+  font-size: 30px;
 }
 
 .trending img {

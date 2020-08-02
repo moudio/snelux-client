@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Login.css';
 import FormBackground from '../../pictures/form_background.jpeg';
-// import { connect } from 'react-redux';
 
 export const Login = () => (
   <div className="login-div-parent">
@@ -12,7 +11,7 @@ export const Login = () => (
         <div className="col-md-8 inner-form-container">
           <form>
             <div className="form-group">
-              <label for="exampleInputEmail1">Email address</label>
+              <label htmlFor="exampleInputEmail1">Email address</label>
               <input
                 type="email"
                 className="form-control"
@@ -22,7 +21,7 @@ export const Login = () => (
               />
             </div>
             <div className="form-group">
-              <label for="exampleInputPassword1">Password</label>
+              <label htmlFor="exampleInputPassword1">Password</label>
               <input
                 type="password"
                 className="form-control"
@@ -40,13 +39,5 @@ export const Login = () => (
     </div>
   </div>
 );
-
-Login.propTypes = {
-  prop: PropTypes,
-};
-
-const mapStateToProps = (state) => ({});
-
-const mapDispatchToProps = {};
 
 export default Login;

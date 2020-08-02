@@ -31,7 +31,7 @@ const NavBar = () => (
     </ul>
     <ul className="right-nav">
       <li>
-        <Link>Shop Now</Link>
+        <Link to="/">Shop Now</Link>
       </li>
       <li>
         <Link to="/signup" data-testid="signup">
@@ -39,16 +39,10 @@ const NavBar = () => (
         </Link>
       </li>
       <li>
-        <Link>
-          <FaShoppingCart />
-        </Link>
+        <FaShoppingCart />
       </li>
     </ul>
   </nav>
 );
-
-NavBar.propTypes = {
-  prop: PropTypes,
-};
 
 export default NavBar;
