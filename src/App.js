@@ -19,7 +19,6 @@ function App() {
         return response;
       })
       .then((response) => {
-        console.log(response);
         setTrendings(response.data);
       });
   }, []);

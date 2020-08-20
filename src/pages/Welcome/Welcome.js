@@ -2,6 +2,7 @@ import React from 'react';
 import './Welcome.css';
 import { Link } from 'react-router-dom';
 import TopTrending from '../../components/TopTrending/TopTrending';
+import Categories from '../../components/Categories/Categories';
 
 function Welcome({ trendings }) {
   return (
@@ -16,6 +17,7 @@ function Welcome({ trendings }) {
         </div>
       </header>
       <TopTrending trendings={trendings} />
+      <Categories />
     </div>
   );
 }

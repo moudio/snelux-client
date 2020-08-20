@@ -39,4 +39,8 @@ describe('tests the App renders the different pages', () => {
       screen.getByTestId('fetching-trending-products')
     ).toBeInTheDocument();
   });
+  test('shows the different categories in home page', () => {
+    fireEvent.click(screen.getByTestId('home'));
+    expect(screen.getByTestId('categories')).toBeInTheDocument();
+  });
 });
