@@ -6,7 +6,7 @@ import TopTrending from '../../components/TopTrending/TopTrending';
 function Welcome({ trendings }) {
   return (
     <div>
-      <header className="welcome-header">
+      <header data-testid="header" className="welcome-header">
         <div className="welcome-header-content">
           <h1>The Place To Be For Luxury</h1>
           <p>Get The Finest Products at The Finest Price</p>

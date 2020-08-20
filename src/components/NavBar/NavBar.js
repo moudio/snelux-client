@@ -9,7 +9,9 @@ const NavBar = () => (
     <ul className="left-nav">
       <li>
         {' '}
-        <Link to="/">Home</Link>
+        <Link to="/" data-testid="home">
+          Home
+        </Link>
       </li>
       <li>
         <Link to="/products" data-testid="products-nav-link">

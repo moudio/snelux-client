@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import axios from 'axios';
 import NavBar from './components/NavBar/NavBar';
 import Welcome from './pages/Welcome/Welcome';
 import Login from './pages/Login/Login';
@@ -12,13 +13,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const [trendings, setTrendings] = useState([]);
   useEffect(() => {
-    fetch('./data.json')
-      .then((response) => response.json())
-
+    axios
+      .get('http://localhost:3001/api/products')
       .then((response) => {
-        setTimeout(() => {
-          setTrendings(response);
-        }, 2000);
+        return response;
+      })
+      .then((response) => {
+        console.log(response);
+        setTrendings(response.data);
       });
   }, []);
 
