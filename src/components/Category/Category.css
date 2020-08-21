@@ -1,0 +1,31 @@
+.category.home {
+  background: linear-gradient(rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.877)),
+    url('../../pictures/home_decor.jpg');
+  color: white;
+  background-position: center;
+  background-size: cover;
+}
+
+.category.jewelry {
+  background: linear-gradient(rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.877)),
+    url('../../pictures/jewel.jpg');
+  color: white;
+  background-position: center;
+  background-size: cover;
+}
+
+.category.car {
+  background: linear-gradient(rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.877)),
+    url('../../pictures/car.jpg');
+  color: white;
+  background-position: center;
+  background-size: cover;
+}
+
+.category.clothes {
+  background: linear-gradient(rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.877)),
+    url('../../pictures/clothes.jpeg');
+  color: white;
+  background-position: center;
+  background-size: cover;
+}
