@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import axios from 'axios';
@@ -24,14 +22,6 @@ function App() {
         setTrendings(response.data);
       });
   }, []);
-
-  let settings = {
-    infinite: false,
-    speed: 1000,
-    arrows: true,
-    slidesToShow: 5,
-    slidesToScroll: 4,
-  };
 
   return (
     <div className="App" data-testid="App">
