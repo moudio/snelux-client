@@ -1,8 +1,18 @@
+import { CHECKING_SIGNUP } from '../actions/actions';
+
 export const defaultState = {
   user: null,
 };
 const userReducer = (state = defaultState, action) => {
-  return state;
+  switch (action.type) {
+    case CHECKING_SIGNUP:
+      return {
+        ...state,
+        isLogginIn: true,
+      };
+    default:
+      return state;
+  }
 };
 
 export default userReducer;
