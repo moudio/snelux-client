@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './Signup.css';
 
 function Signup() {
@@ -53,4 +54,12 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default connect(null, mapDispatchToProps)(Signup);
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    attemptLogin: (loginParams) => {
+      dispatch(loginParams);
+    },
+  };
+};

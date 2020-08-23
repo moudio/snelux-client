@@ -10,7 +10,7 @@ import './App.css';
 import Products from './components/Products/Products';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+function App({ userReducer, productsReducer }) {
   const [trendings, setTrendings] = useState([]);
   useEffect(() => {
     axios
@@ -40,9 +40,13 @@ function App() {
   );
 }
 
-const mapStateToProps = (state) => {};
+const mapStateToProps = (state) => {
+  return {
+    userState: state.userReducer,
+    productsState: state.productsReducer,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {};
 
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
