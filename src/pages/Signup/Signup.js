@@ -26,10 +26,14 @@ function Signup({ signup, userState }) {
       <div className="register-form">
         <form className="form">
           <div className="note">
-            <p>Create a new account</p>
+            {userState.isSigning ? (
+              <p>Creating your account...</p>
+            ) : (
+              <p>Create a new account</p>
+            )}
           </div>
           {userState.isSigning ? (
-            <div>
+            <div className="signup-animation-div">
               <img
                 src={loading}
                 alt="loading"

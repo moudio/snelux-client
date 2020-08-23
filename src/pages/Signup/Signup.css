@@ -49,3 +49,15 @@ form {
 .form-inputs-container {
   margin: 0 auto;
 }
+
+.signup-animation-div {
+  margin: 0 auto;
+}
+
+.signup-animation-div h2 {
+  font-size: 18px;
+}
+
+.signup-animation-div img {
+  width: 60px;
+}
