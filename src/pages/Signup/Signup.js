@@ -1,8 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './Signup.css';
+import { attemptSignup } from '../../actions/actions';
 
-function Signup() {
+function Signup({ signup }) {
+  function handleSubmit(e) {
+    e.preventDefault();
+    const username = document.querySelector('.username');
+    const email = document.querySelector('.email');
+    const password = document.querySelector('.password');
+    const passwordConfirmation = document.querySelector(
+      '.password-confirmation'
+    );
+    const signupParams = {
+      username,
+      email,
+      password,
+      passwordConfirmation,
+    };
+    signup(signupParams);
+  }
   return (
     <div className="signup-div" data-testid="signup-div">
       <div className="register-form">
@@ -17,34 +34,42 @@ function Signup() {
                 <div className="form-group">
                   <input
                     type="text"
-                    className="form-control"
-                    placeholder="Your Name *"
+                    name="username"
+                    className="form-control username"
+                    placeholder="Username *"
                   />
                 </div>
                 <div className="form-group">
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control email"
+                    name="email"
                     placeholder="Your Email *"
                   />
                 </div>
                 <div className="form-group">
                   <input
                     type="password"
-                    className="form-control"
+                    name="password"
+                    className="form-control password"
                     placeholder="Your Password *"
                   />
                 </div>
                 <div className="form-group">
                   <input
                     type="password"
-                    className="form-control"
+                    name="password-confirmation"
+                    className="form-control password-confirmation"
                     placeholder="Confirm Password *"
                   />
                 </div>
               </div>
             </div>
-            <button type="submit" className="btnSubmit">
+            <button
+              type="submit"
+              className="btnSubmit"
+              onClick={(e) => handleSubmit(e)}
+            >
               Submit
             </button>
           </div>
@@ -54,12 +79,8 @@ function Signup() {
   );
 }
 
-export default connect(null, mapDispatchToProps)(Signup);
+const mapDispatchToProps = (dispatch) => ({
+  signup: (signupParams) => dispatch(attemptSignup(signupParams)),
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    attemptLogin: (loginParams) => {
-      dispatch(loginParams);
-    },
-  };
-};
+export default connect(null, mapDispatchToProps)(Signup);

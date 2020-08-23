@@ -1,6 +1,7 @@
+import axios from 'axios';
 const CHECKING_SIGNUP = 'CHECKING_SIGNUP';
 
-const attemptLogin = (credentials) => (dispatch) => {
+export const attemptSignup = (credentials) => (dispatch) => {
   dispatch({
     type: CHECKING_SIGNUP,
   });
