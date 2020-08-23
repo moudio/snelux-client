@@ -8,7 +8,7 @@ const userReducer = (state = defaultState, action) => {
     case CHECKING_SIGNUP:
       return {
         ...state,
-        isLogginIn: true,
+        isSigning: true,
       };
     default:
       return state;

@@ -9,8 +9,9 @@ import Signup from './pages/Signup/Signup';
 import './App.css';
 import Products from './components/Products/Products';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Loading from './pictures/loading.gif';
 
-function App({ userReducer, productsReducer }) {
+function App({ userState, productsState }) {
   const [trendings, setTrendings] = useState([]);
   useEffect(() => {
     axios
@@ -33,18 +34,18 @@ function App({ userReducer, productsReducer }) {
           </Route>
           <Route exact path="/products" component={Products} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
         </Switch>
       </Router>
     </div>
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    userState: state.userReducer,
-    productsState: state.productsReducer,
-  };
-};
+const mapStateToProps = (state) => ({
+  userState: state.userReducer,
+  productsState: state.productsReducer,
+});
 
 export default connect(mapStateToProps, null)(App);

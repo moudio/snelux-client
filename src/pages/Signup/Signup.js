@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './Signup.css';
 import { attemptSignup } from '../../actions/actions';
+import loading from '../../pictures/loading.gif';
 
-function Signup({ signup }) {
+function Signup({ signup, userState }) {
   function handleSubmit(e) {
     e.preventDefault();
     const username = document.querySelector('.username');
@@ -27,7 +28,17 @@ function Signup({ signup }) {
           <div className="note">
             <p>Create a new account</p>
           </div>
-
+          {userState.isSigning ? (
+            <div>
+              <img
+                src={loading}
+                alt="loading"
+                className="loading-signup-animation"
+              />
+            </div>
+          ) : (
+            ''
+          )}
           <div className="form-content">
             <div className="row">
               <div className="col-md-8 form-inputs-container">
@@ -79,8 +90,12 @@ function Signup({ signup }) {
   );
 }
 
+const mapStateToProps = (state) => ({
+  userState: state.userReducer,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   signup: (signupParams) => dispatch(attemptSignup(signupParams)),
 });
 
-export default connect(null, mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);
