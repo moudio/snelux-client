@@ -7,12 +7,12 @@ import loading from '../../pictures/loading.gif';
 function Signup({ signup, userState }) {
   function handleSubmit(e) {
     e.preventDefault();
-    const username = document.querySelector('.username');
-    const email = document.querySelector('.email');
-    const password = document.querySelector('.password');
+    const username = document.querySelector('.username').value;
+    const email = document.querySelector('.email').value;
+    const password = document.querySelector('.password').value;
     const passwordConfirmation = document.querySelector(
       '.password-confirmation'
-    );
+    ).value;
     const signupParams = {
       username,
       email,
@@ -52,14 +52,16 @@ function Signup({ signup, userState }) {
                     name="username"
                     className="form-control username"
                     placeholder="Username *"
+                    required
                   />
                 </div>
                 <div className="form-group">
                   <input
-                    type="text"
+                    type="email"
                     className="form-control email"
                     name="email"
                     placeholder="Your Email *"
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -68,6 +70,7 @@ function Signup({ signup, userState }) {
                     name="password"
                     className="form-control password"
                     placeholder="Your Password *"
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -76,6 +79,7 @@ function Signup({ signup, userState }) {
                     name="password-confirmation"
                     className="form-control password-confirmation"
                     placeholder="Confirm Password *"
+                    required
                   />
                 </div>
               </div>
@@ -85,7 +89,7 @@ function Signup({ signup, userState }) {
               className="btnSubmit"
               onClick={(e) => handleSubmit(e)}
             >
-              Submit
+              Create Account
             </button>
           </div>
         </form>
