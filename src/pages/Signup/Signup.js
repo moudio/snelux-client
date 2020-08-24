@@ -10,16 +10,16 @@ function Signup({ signup, userState }) {
     const username = document.querySelector('.username').value;
     const email = document.querySelector('.email').value;
     const password = document.querySelector('.password').value;
-    const passwordConfirmation = document.querySelector(
+    const password_confirmation = document.querySelector(
       '.password-confirmation'
     ).value;
-    const signupParams = {
+    const user = {
       username,
       email,
       password,
-      passwordConfirmation,
+      password_confirmation,
     };
-    signup(signupParams);
+    signup(user);
   }
   return (
     <div className="signup-div" data-testid="signup-div">
