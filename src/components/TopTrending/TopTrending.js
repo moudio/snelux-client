@@ -26,8 +26,8 @@ function TopTrending({ trendings }) {
       <h1> Trending products</h1>
       <div className="trending-products" data-testid="trending-products">
         <Slider {...settings}>
-          {trendings.map((trending) => (
-            <div className="trending">
+          {trendings.map((trending, index) => (
+            <div className="trending" key={index}>
               <img src={trending.picture.url} alt="Stan Smith" />
 
               <h1>{trending.name}</h1>
