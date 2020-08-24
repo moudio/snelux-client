@@ -9,9 +9,23 @@ export const attemptSignup = (user) => (dispatch) => {
     type: CHECKING_SIGNUP,
   });
 
-  axios.post('http://localhost:3001/api/users/', { user }).then((response) => {
-    const { data } = response;
-    if (data.status === 'created') dispatch(SIGNUP_SUCCESS);
-    if (data.status === 500) dispatch(SIGNUP_ERROR);
-  });
+  setTimeout(() => {
+    axios
+      .post('http://localhost:3001/api/users/', { user })
+      .then((response) => {
+        const { data } = response;
+        if (data.status === 'created') {
+          dispatch({
+            type: SIGNUP_SUCCESS,
+            user: data.user,
+          });
+        }
+        if (data.status === 500) {
+          dispatch({
+            type: SIGNUP_ERROR,
+            errors: data.errors,
+          });
+        }
+      });
+  }, 1000);
 };

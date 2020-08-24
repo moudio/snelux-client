@@ -18,12 +18,13 @@ const userReducer = (state = defaultState, action) => {
       return {
         ...state,
         isSigning: false,
-        user: state.data.user,
+        user: action.user,
       };
     case SIGNUP_ERROR:
       return {
         ...state,
         isSigning: false,
+        signupErrors: action.errors,
       };
     default:
       return state;

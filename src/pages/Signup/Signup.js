@@ -43,6 +43,18 @@ function Signup({ signup, userState }) {
           ) : (
             ''
           )}
+          {userState.signupErrors ? (
+            <ul className="signup-errors">
+              <h3>These errors prevented the signup</h3>
+              {userState.signupErrors.map((error, index) => (
+                <li className="signup-error" key={index}>
+                  {error}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            ''
+          )}
           <div className="form-content">
             <div className="row">
               <div className="col-md-8 form-inputs-container">
