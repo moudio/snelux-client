@@ -13,6 +13,7 @@ const userReducer = (state = defaultState, action) => {
       return {
         ...state,
         isSigning: true,
+        signupErrors: null,
       };
     case SIGNUP_SUCCESS:
       return {

@@ -24,7 +24,7 @@ function Signup({ signup, userState }) {
   return (
     <div className="signup-div" data-testid="signup-div">
       <div className="register-form">
-        <form className="form">
+        <form className="form" onSubmit={(e) => handleSubmit(e)}>
           <div className="note">
             {userState.isSigning ? (
               <p>Creating your account...</p>
@@ -45,7 +45,6 @@ function Signup({ signup, userState }) {
           )}
           {userState.signupErrors ? (
             <ul className="signup-errors">
-              <h3>These errors prevented the signup</h3>
               {userState.signupErrors.map((error, index) => (
                 <li className="signup-error" key={index}>
                   {error}
@@ -99,7 +98,7 @@ function Signup({ signup, userState }) {
             <button
               type="submit"
               className="btnSubmit"
-              onClick={(e) => handleSubmit(e)}
+              // onClick={(e) => handleSubmit(e)}
             >
               Create Account
             </button>
