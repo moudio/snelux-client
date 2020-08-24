@@ -1,4 +1,8 @@
-import { CHECKING_SIGNUP } from '../actions/actions';
+import {
+  CHECKING_SIGNUP,
+  SIGNUP_ERROR,
+  SIGNUP_SUCCESS,
+} from '../actions/actions';
 
 export const defaultState = {
   user: null,
@@ -9,6 +13,17 @@ const userReducer = (state = defaultState, action) => {
       return {
         ...state,
         isSigning: true,
+      };
+    case SIGNUP_SUCCESS:
+      return {
+        ...state,
+        isSigning: false,
+        user: state.data.user,
+      };
+    case SIGNUP_ERROR:
+      return {
+        ...state,
+        isSigning: false,
       };
     default:
       return state;
