@@ -2,6 +2,7 @@ import {
   CHECKING_SIGNUP,
   SIGNUP_ERROR,
   SIGNUP_SUCCESS,
+  LOGGING_IN,
 } from '../actions/actions';
 
 export const defaultState = {
@@ -26,6 +27,11 @@ const userReducer = (state = defaultState, action) => {
         ...state,
         isSigning: false,
         signupErrors: action.errors,
+      };
+    case LOGGING_IN:
+      return {
+        ...state,
+        isLogginIn: true,
       };
     default:
       return state;

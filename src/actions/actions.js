@@ -3,6 +3,7 @@ import axios from 'axios';
 export const CHECKING_SIGNUP = 'CHECKING_SIGNUP';
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
+export const LOGGING_IN = 'CHECKING_LOGGIN';
 
 export const attemptSignup = (user) => (dispatch) => {
   dispatch({
@@ -28,4 +29,10 @@ export const attemptSignup = (user) => (dispatch) => {
         }
       });
   }, 1000);
+};
+
+export const attemptLogin = (user) => (dispatch) => {
+  dispatch({
+    type: LOGGING_IN,
+  });
 };

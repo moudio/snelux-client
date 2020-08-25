@@ -5,6 +5,7 @@ import { createStore } from 'redux';
 import { render, fireEvent, screen } from './test-utils';
 
 import App from '../App';
+import { act } from 'react-dom/test-utils';
 
 describe('tests the App renders the different pages', () => {
   beforeEach(() => {
