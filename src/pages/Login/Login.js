@@ -45,6 +45,7 @@ export const Login = ({ tryLogin, userState }) => {
                   id="username"
                   aria-describedby="username"
                   placeholder="Enter usename"
+                  required
                 />
               </div>
               <div className="form-group">
@@ -54,6 +55,7 @@ export const Login = ({ tryLogin, userState }) => {
                   className="form-control"
                   id="password"
                   placeholder="Password"
+                  required
                 />
               </div>
               <button type="submit" className="btn btn-primary">
