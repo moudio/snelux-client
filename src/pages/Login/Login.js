@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Login.css';
+import { attemptLogin } from '../../actions/actions';
 import FormBackground from '../../pictures/form_background.jpeg';
+import { connect } from 'react-redux';
 
 export const Login = () => (
   <div className="login-div-parent">
@@ -9,7 +11,7 @@ export const Login = () => (
     <div className="form-and-background-container container">
       <div className="row">
         <div className="col-md-8 inner-form-container">
-          <form>
+          <form onSubmit={(e) => handleLogin(e)}>
             <div className="form-group">
               <label htmlFor="exampleInputEmail1">Email address</label>
               <input
@@ -40,4 +42,12 @@ export const Login = () => (
   </div>
 );
 
-export default Login;
+const mapStateToProps = (state) => ({
+  userState: state.userReducer,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  tryLogin: (user) => dispatch(attemptLogin(user)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
