@@ -9,8 +9,8 @@ import loading from '../../pictures/loading.gif';
 export const Login = ({ tryLogin, userState }) => {
   function handleLogin(e) {
     e.preventDefault();
-    const username = document.querySelector('#username');
-    const password = document.querySelector('#password');
+    const username = document.querySelector('#username').value;
+    const password = document.querySelector('#password').value;
     const user = {
       username,
       password,
@@ -52,7 +52,7 @@ export const Login = ({ tryLogin, userState }) => {
                 <input
                   type="password"
                   className="form-control"
-                  id="exampleInputPassword1"
+                  id="password"
                   placeholder="Password"
                 />
               </div>

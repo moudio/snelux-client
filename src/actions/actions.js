@@ -35,4 +35,11 @@ export const attemptLogin = (user) => (dispatch) => {
   dispatch({
     type: LOGGING_IN,
   });
+  console.log(user);
+  axios
+    .post('http://localhost:3001/api/login/', { user })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => console.log(error));
 };
