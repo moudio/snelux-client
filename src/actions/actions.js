@@ -4,6 +4,8 @@ export const CHECKING_SIGNUP = 'CHECKING_SIGNUP';
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const LOGGING_IN = 'CHECKING_LOGGIN';
+export const LOGGIN_SUCCESS = 'LOGGIN_SUCCESS';
+export const LOGGIN_FAILURE = 'LOGGIN_FAILURE';
 
 export const attemptSignup = (user) => (dispatch) => {
   dispatch({
@@ -35,11 +37,24 @@ export const attemptLogin = (user) => (dispatch) => {
   dispatch({
     type: LOGGING_IN,
   });
-  console.log(user);
-  axios
-    .post('http://localhost:3001/api/login/', { user })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => console.log(error));
+
+  setTimeout(() => {
+    axios
+      .post('http://localhost:3001/api/login/', { user })
+      .then((response) => {
+        const { data } = response;
+        if (data.status === 'logged_in') {
+          dispatch({
+            type: LOGGIN_SUCCESS,
+            user: data.user,
+          });
+        } else {
+          dispatch({
+            type: LOGGIN_FAILURE,
+            errors: data.errors,
+          });
+        }
+      })
+      .catch((error) => console.log(error));
+  }, 1000);
 };
