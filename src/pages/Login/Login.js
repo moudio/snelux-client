@@ -38,6 +38,17 @@ export const Login = ({ tryLogin, userState }) => {
                 ) : (
                   ''
                 )}
+                {userState.loginErrors ? (
+                  <ul className="signup-errors">
+                    {userState.loginErrors.map((error, index) => (
+                      <li className="signup-error" key={index}>
+                        {error}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  ''
+                )}
                 <label htmlFor="username">Username</label>
                 <input
                   type="text"
