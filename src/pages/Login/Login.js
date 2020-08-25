@@ -4,6 +4,7 @@ import './Login.css';
 import { attemptLogin } from '../../actions/actions';
 import FormBackground from '../../pictures/form_background.jpeg';
 import { connect } from 'react-redux';
+import loading from '../../pictures/loading.gif';
 
 export const Login = ({ tryLogin, userState }) => {
   function handleLogin(e) {
@@ -25,6 +26,18 @@ export const Login = ({ tryLogin, userState }) => {
           <div className="col-md-8 inner-form-container">
             <form onSubmit={(e) => handleLogin(e)}>
               <div className="form-group">
+                {userState.isLogginIn ? (
+                  <div className="login-animation-div">
+                    <h2 className="login-animation-text">Please wait ...</h2>
+                    <img
+                      src={loading}
+                      alt="loading"
+                      className="loading-login-animation"
+                    />
+                  </div>
+                ) : (
+                  ''
+                )}
                 <label htmlFor="username">Username</label>
                 <input
                   type="text"

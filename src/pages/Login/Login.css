@@ -34,3 +34,13 @@
   background-position: center;
   background-size: cover;
 }
+
+.login-animation-div img {
+  display: block;
+  margin: 0 auto;
+  width: 30px;
+}
+
+.login-animation-text {
+  font-size: 18px;
+}
