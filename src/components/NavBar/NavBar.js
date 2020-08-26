@@ -46,17 +46,27 @@ const NavBar = ({ userState }) => (
       ) : (
         ''
       )}
-      {userState.access ? (
-        <li>
-          <FaShoppingCart />
-        </li>
-      ) : (
-        ''
-      )}
+
       {userState.access ? (
         <li>
           <Link to="/dashboard">Dashboard</Link>
         </li>
+      ) : (
+        ''
+      )}
+
+      {userState.access ? (
+        <>
+          <li>
+            <Link to="/profile">Profile</Link>
+          </li>
+          <li>
+            <FaShoppingCart />
+          </li>
+          <li>
+            <Link to="/logout">Logout</Link>
+          </li>
+        </>
       ) : (
         ''
       )}
