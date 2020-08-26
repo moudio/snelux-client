@@ -5,6 +5,7 @@ import { attemptLogin } from '../../actions/actions';
 import FormBackground from '../../pictures/form_background.jpeg';
 import { connect } from 'react-redux';
 import loading from '../../pictures/loading.gif';
+import { Link } from 'react-router-dom';
 
 export const Login = ({ tryLogin, userState }) => {
   function handleLogin(e) {
@@ -72,6 +73,9 @@ export const Login = ({ tryLogin, userState }) => {
               <button type="submit" className="btn btn-primary">
                 Login
               </button>
+              <p className="create-account">
+                Or you can {<Link to="/signup">Create an account</Link>}
+              </p>
             </form>
           </div>
           <div className="col-md-4 form-picture-div"></div>

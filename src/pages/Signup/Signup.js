@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './Signup.css';
 import { attemptSignup } from '../../actions/actions';
 import loading from '../../pictures/loading.gif';
+import { Link } from 'react-router-dom';
 
 function Signup({ signup, userState }) {
   function handleSubmit(e) {
@@ -102,6 +103,7 @@ function Signup({ signup, userState }) {
             >
               Create Account
             </button>
+            <p>Or {<Link to="/login">login to your account</Link>}</p>
           </div>
         </form>
       </div>
