@@ -14,7 +14,6 @@ import Signup from './pages/Signup/Signup';
 import './App.css';
 import Products from './components/Products/Products';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Loading from './pictures/loading.gif';
 import Dashboard from './pages/Dashboard/Dashboard';
 import NotFound from './pages/NotFound/NotFound';
 

@@ -24,6 +24,7 @@ const userReducer = (state = defaultState, action) => {
         isSigning: false,
         user: action.user,
         access: true,
+        redirectTo: action.redirect,
       };
     case SIGNUP_ERROR:
       return {

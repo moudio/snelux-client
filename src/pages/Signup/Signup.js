@@ -3,9 +3,12 @@ import { connect } from 'react-redux';
 import './Signup.css';
 import { attemptSignup } from '../../actions/actions';
 import loading from '../../pictures/loading.gif';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 function Signup({ signup, userState }) {
+  if (userState.redirectTo) {
+    return <Redirect to={userState.redirectTo} />;
+  }
   function handleSubmit(e) {
     e.preventDefault();
     const username = document.querySelector('.username').value;
@@ -22,6 +25,7 @@ function Signup({ signup, userState }) {
     };
     signup(user);
   }
+
   return (
     <div className="signup-div" data-testid="signup-div">
       <div className="register-form">

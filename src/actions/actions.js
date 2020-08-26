@@ -17,10 +17,12 @@ export const attemptSignup = (user) => (dispatch) => {
       .post('http://localhost:3001/api/users/', { user })
       .then((response) => {
         const { data } = response;
+
         if (data.status === 'created') {
           dispatch({
             type: SIGNUP_SUCCESS,
             user: data.user,
+            redirect: '/dashboard',
           });
         }
         if (data.status === 500) {
@@ -54,7 +56,6 @@ export const attemptLogin = (user) => (dispatch) => {
             errors: data.errors,
           });
         }
-      })
-      .catch((error) => console.log(error));
+      });
   }, 1000);
 };
