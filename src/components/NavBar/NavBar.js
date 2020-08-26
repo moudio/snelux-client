@@ -53,6 +53,13 @@ const NavBar = ({ userState }) => (
       ) : (
         ''
       )}
+      {userState.access ? (
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+      ) : (
+        ''
+      )}
     </ul>
   </nav>
 );
