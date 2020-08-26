@@ -16,6 +16,7 @@ import Products from './components/Products/Products';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Loading from './pictures/loading.gif';
 import Dashboard from './pages/Dashboard/Dashboard';
+import NotFound from './pages/NotFound/NotFound';
 
 function App({ userState, productsState }) {
   const [trendings, setTrendings] = useState([]);
@@ -45,6 +46,9 @@ function App({ userState, productsState }) {
           </Route>
           <Route exact path="/dashboard">
             {userState.access ? <Dashboard /> : <Redirect to="/" />}
+          </Route>
+          <Route path="/">
+            <NotFound />
           </Route>
         </Switch>
       </Router>
