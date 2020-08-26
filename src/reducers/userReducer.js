@@ -23,6 +23,7 @@ const userReducer = (state = defaultState, action) => {
         ...state,
         isSigning: false,
         user: action.user,
+        access: true,
       };
     case SIGNUP_ERROR:
       return {
@@ -40,6 +41,7 @@ const userReducer = (state = defaultState, action) => {
         ...state,
         isLogginIn: false,
         user: action.user,
+        access: true,
       };
     case LOGGIN_FAILURE:
       return {

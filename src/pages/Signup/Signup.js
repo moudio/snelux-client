@@ -96,11 +96,7 @@ function Signup({ signup, userState }) {
                 </div>
               </div>
             </div>
-            <button
-              type="submit"
-              className="btnSubmit"
-              // onClick={(e) => handleSubmit(e)}
-            >
+            <button type="submit" className="btnSubmit">
               Create Account
             </button>
             <p>Or {<Link to="/login">login to your account</Link>}</p>
