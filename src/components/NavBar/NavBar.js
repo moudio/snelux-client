@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 import './NavBar.css';
 
-const NavBar = () => (
+const NavBar = ({ userState }) => (
   <nav className="NavBar" data-testid="navigation">
     <ul className="left-nav">
       <li>
@@ -18,11 +19,15 @@ const NavBar = () => (
           Products
         </Link>
       </li>
-      <li>
-        <Link to="/login" data-testid="login">
-          Login
-        </Link>
-      </li>
+      {!userState.access ? (
+        <li>
+          <Link to="/login" data-testid="login">
+            Login
+          </Link>
+        </li>
+      ) : (
+        ''
+      )}
     </ul>
     <ul className="center-nav">
       <li>
@@ -32,19 +37,26 @@ const NavBar = () => (
       </li>
     </ul>
     <ul className="right-nav">
-      <li>
-        <Link to="/">Shop Now</Link>
-      </li>
-      <li>
-        <Link to="/signup" data-testid="signup">
-          Register
-        </Link>
-      </li>
-      <li>
-        <FaShoppingCart />
-      </li>
+      {!userState.access ? (
+        <li>
+          <Link to="/signup" data-testid="signup">
+            Register
+          </Link>
+        </li>
+      ) : (
+        ''
+      )}
+      {userState.access ? (
+        <li>
+          <FaShoppingCart />
+        </li>
+      ) : (
+        ''
+      )}
     </ul>
   </nav>
 );
-
-export default NavBar;
+const mapStateToProps = (state) => ({
+  userState: state.userReducer,
+});
+export default connect(mapStateToProps, null)(NavBar);
