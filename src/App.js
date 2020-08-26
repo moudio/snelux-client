@@ -45,7 +45,7 @@ function App({ userState, productsState }) {
             <Signup />
           </Route>
           <Route exact path="/dashboard">
-            {userState.access ? <Dashboard /> : <Redirect to="/" />}
+            {userState.access ? <Dashboard /> : <Redirect to="/login" />}
           </Route>
           <Route path="/">
             <NotFound />
