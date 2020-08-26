@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
+import { logout } from '../../actions/actions';
 import './NavBar.css';
 
-const NavBar = ({ userState }) => (
+const NavBar = ({ userState, handleLogout }) => (
   <nav className="NavBar" data-testid="navigation">
     <ul className="left-nav">
       <li>
@@ -64,7 +65,9 @@ const NavBar = ({ userState }) => (
             <FaShoppingCart />
           </li>
           <li>
-            <Link to="/logout">Logout</Link>
+            <Link to="/login" onClick={handleLogout}>
+              Logout
+            </Link>
           </li>
         </>
       ) : (
@@ -76,4 +79,7 @@ const NavBar = ({ userState }) => (
 const mapStateToProps = (state) => ({
   userState: state.userReducer,
 });
-export default connect(mapStateToProps, null)(NavBar);
+const mapDispatchToProps = (dispatch) => ({
+  handleLogout: () => dispatch(logout()),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

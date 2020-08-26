@@ -6,6 +6,7 @@ export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const LOGGING_IN = 'CHECKING_LOGGIN';
 export const LOGGIN_SUCCESS = 'LOGGIN_SUCCESS';
 export const LOGGIN_FAILURE = 'LOGGIN_FAILURE';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 
 export const attemptSignup = (user) => (dispatch) => {
   dispatch({
@@ -59,4 +60,15 @@ export const attemptLogin = (user) => (dispatch) => {
         }
       });
   }, 1000);
+};
+
+export const logout = () => (dispatch) => {
+  axios.delete('http://localhost:3001/api/logout/').then((response) => {
+    const { data } = response;
+    if (data.status === 'logged_out') {
+      dispatch({
+        type: LOGOUT_SUCCESS,
+      });
+    }
+  });
 };

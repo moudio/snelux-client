@@ -5,6 +5,7 @@ import {
   LOGGING_IN,
   LOGGIN_SUCCESS,
   LOGGIN_FAILURE,
+  LOGOUT_SUCCESS,
 } from '../actions/actions';
 
 export const defaultState = {
@@ -50,6 +51,13 @@ const userReducer = (state = defaultState, action) => {
         ...state,
         isLogginIn: false,
         loginErrors: action.errors,
+      };
+    case LOGOUT_SUCCESS:
+      return {
+        ...state,
+        access: false,
+        redirectTo: null,
+        user: null,
       };
     default:
       return state;
