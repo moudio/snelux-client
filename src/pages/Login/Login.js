@@ -5,9 +5,12 @@ import { attemptLogin } from '../../actions/actions';
 import FormBackground from '../../pictures/form_background.jpeg';
 import { connect } from 'react-redux';
 import loading from '../../pictures/loading.gif';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 export const Login = ({ tryLogin, userState }) => {
+  if (userState.redirectTo) {
+    return <Redirect to={userState.redirectTo} />;
+  }
   function handleLogin(e) {
     e.preventDefault();
     const username = document.querySelector('#username').value;

@@ -43,6 +43,7 @@ const userReducer = (state = defaultState, action) => {
         isLogginIn: false,
         user: action.user,
         access: true,
+        redirectTo: action.redirect,
       };
     case LOGGIN_FAILURE:
       return {

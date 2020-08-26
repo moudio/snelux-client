@@ -49,6 +49,7 @@ export const attemptLogin = (user) => (dispatch) => {
           dispatch({
             type: LOGGIN_SUCCESS,
             user: data.user,
+            redirect: '/dashboard',
           });
         } else {
           dispatch({
