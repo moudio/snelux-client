@@ -21,7 +21,12 @@ function ProductDetails({ userState, productsState }) {
         <div className="product-content">
           <p>{description}</p>
           <p>{price}</p>
-          <img src={picture.url} alt="" />
+          <button className="add-to-cart-button">Add To Cart</button>
+          <button className="buy-button">Buy Now</button>
+
+          <div className="product-image">
+            <img src={picture.url} alt="" />
+          </div>
         </div>
       </div>
     </div>
