@@ -1,5 +1,6 @@
 import React from 'react';
 import './Product.css';
+import { Link } from 'react-router-dom';
 
 function Product(props) {
   const { name, description, price, picture } = props.product;
@@ -19,9 +20,9 @@ function Product(props) {
             <div className="ad-title m-auto">
               <h5>{name}</h5>
             </div>
-            <a className="view-product-btn" href="#">
+            <Link className="view-product-btn" to={`/product/${name}`}>
               View
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import './Products.css';
 function Products() {
   const [allProducts, setProducts] = useState([]);
   const [searchFilter, setFilter] = useState('All');
+
   useEffect(() => {
     axios.get('http://localhost:3001/api/products').then((response) => {
       const { data } = response;
