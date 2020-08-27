@@ -21,12 +21,13 @@ function ProductDetails({ userState, productsState }) {
         <div className="product-content">
           <p>{description}</p>
           <p>{price}</p>
-          <button className="add-to-cart-button">Add To Cart</button>
-          <button className="buy-button">Buy Now</button>
-
-          <div className="product-image">
-            <img src={picture.url} alt="" />
-          </div>
+          <button className="add-to-cart-button btn btn-lg btn-info">
+            Add To Cart
+          </button>
+          <button className="buy-button btn btn-lg btn-warning">Buy Now</button>
+        </div>
+        <div className="product-image">
+          <img src={picture.url} alt="" />
         </div>
       </div>
     </div>

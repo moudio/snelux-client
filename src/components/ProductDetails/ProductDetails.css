@@ -1,3 +1,21 @@
 .loading-product-view {
   width: 60px;
 }
+
+.product-image-and-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-content {
+  width: 60%;
+}
+
+.product-image {
+  width: 40%;
+}
+
+.product-image img {
+  max-width: 100%;
+}
