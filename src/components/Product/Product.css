@@ -1,6 +1,7 @@
 .product {
   margin: 20px;
   width: 25%;
+  min-width: 300px;
 }
 
 .product .card-notify-badge {

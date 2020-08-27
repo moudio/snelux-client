@@ -11,14 +11,20 @@ function Products() {
       setProducts(data);
     });
   }, []);
+
+  function handleSearch() {}
   return (
     <div className="products" data-testid="all-products-div">
       <h1>{allProducts ? 'All products' : 'Fetching Products...'}</h1>
       <div className="products">
-        <input type="search" name="search-product" id="searchProduct" />
+        <input
+          type="search"
+          name="search-product"
+          id="searchProduct"
+          onChange={handleSearch}
+        />
         <div className="products-content">
           {allProducts.map((product, index) => {
-            console.log('inside all products');
             return <Product product={product} key={index} />;
           })}
         </div>
