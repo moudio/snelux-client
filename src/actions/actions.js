@@ -7,11 +7,16 @@ export const LOGGING_IN = 'CHECKING_LOGGIN';
 export const LOGGIN_SUCCESS = 'LOGGIN_SUCCESS';
 export const LOGGIN_FAILURE = 'LOGGIN_FAILURE';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const FETCH_ALL_PRODUCTS_SUCCESS = 'FETCH_ALL_PRODUCTS_SUCCESS';
 
 export const fetchProducts = () => (dispatch) => {
-  axios
-    .get('http://localhost:3001/api/products')
-    .then((response) => console.log(response));
+  axios.get('http://localhost:3001/api/products').then((response) => {
+    const { data } = response.data;
+    dispatch({
+      type: FETCH_ALL_PRODUCTS_SUCCESS,
+      products: data,
+    });
+  });
 };
 
 export const attemptSignup = (user) => (dispatch) => {

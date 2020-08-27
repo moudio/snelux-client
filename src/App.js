@@ -19,9 +19,10 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import NotFound from './pages/NotFound/NotFound';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 
-function App({ userState, productsState }) {
+function App({ userState, productsState, getProducts }) {
   const [trendings, setTrendings] = useState([]);
   useEffect(() => {
+    getProducts();
     axios
       .get('http://localhost:3001/api/products')
       .then((response) => {
@@ -73,4 +74,4 @@ const mapDispatchToProps = (dispatch) => ({
   getProducts: () => dispatch(fetchProducts()),
 });
 
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
