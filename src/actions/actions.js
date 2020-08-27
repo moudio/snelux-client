@@ -11,7 +11,7 @@ export const FETCH_ALL_PRODUCTS_SUCCESS = 'FETCH_ALL_PRODUCTS_SUCCESS';
 
 export const fetchProducts = () => (dispatch) => {
   axios.get('http://localhost:3001/api/products').then((response) => {
-    const { data } = response.data;
+    const { data } = response;
     dispatch({
       type: FETCH_ALL_PRODUCTS_SUCCESS,
       products: data,
