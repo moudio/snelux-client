@@ -12,6 +12,7 @@ import Welcome from './pages/Welcome/Welcome';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import './App.css';
+import { fetchProducts } from './actions/actions';
 import Products from './components/Products/Products';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dashboard from './pages/Dashboard/Dashboard';
@@ -66,6 +67,10 @@ function App({ userState, productsState }) {
 const mapStateToProps = (state) => ({
   userState: state.userReducer,
   productsState: state.productsReducer,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getProducts: () => dispatch(fetchProducts()),
 });
 
 export default connect(mapStateToProps, null)(App);

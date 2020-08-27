@@ -8,6 +8,12 @@ export const LOGGIN_SUCCESS = 'LOGGIN_SUCCESS';
 export const LOGGIN_FAILURE = 'LOGGIN_FAILURE';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 
+export const fetchProducts = () => (dispatch) => {
+  axios
+    .get('http://localhost:3001/api/products')
+    .then((response) => console.log(response));
+};
+
 export const attemptSignup = (user) => (dispatch) => {
   dispatch({
     type: CHECKING_SIGNUP,
