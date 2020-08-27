@@ -4,7 +4,7 @@ import './Product.css';
 function Product(props) {
   const { name, description, price, picture } = props.product;
   return (
-    <div className="row" id="ads">
+    <div className="row product">
       <div>
         <div className="card rounded">
           <div className="card-image">
@@ -13,15 +13,13 @@ function Product(props) {
             <img className="img-fluid" src={picture.url} alt={name} />
           </div>
           <div className="card-image-overlay m-auto">
-            <span className="card-detail-badge">Used</span>
-            <span className="card-detail-badge">$28,000.00</span>
-            <span className="card-detail-badge">13000 Kms</span>
+            <span className="card-detail-badge">${price}</span>
           </div>
           <div className="card-body text-center">
             <div className="ad-title m-auto">
               <h5>{name}</h5>
             </div>
-            <a className="ad-btn" href="#">
+            <a className="view-product-btn" href="#">
               View
             </a>
           </div>
