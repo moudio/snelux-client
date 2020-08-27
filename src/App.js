@@ -16,6 +16,7 @@ import Products from './components/Products/Products';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dashboard from './pages/Dashboard/Dashboard';
 import NotFound from './pages/NotFound/NotFound';
+import ProductDetails from './components/ProductDetails/ProductDetails';
 
 function App({ userState, productsState }) {
   const [trendings, setTrendings] = useState([]);
@@ -49,6 +50,9 @@ function App({ userState, productsState }) {
             ) : (
               <Redirect to="/login" />
             )}
+          </Route>
+          <Route path="/product/:name">
+            <ProductDetails />
           </Route>
           <Route path="/">
             <NotFound />
