@@ -18,6 +18,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Dashboard from './pages/Dashboard/Dashboard';
 import NotFound from './pages/NotFound/NotFound';
 import ProductDetails from './components/ProductDetails/ProductDetails';
+import Cart from './pages/Cart/Cart';
 
 function App({ userState, productsState, getProducts }) {
   const [trendings, setTrendings] = useState([]);
@@ -52,6 +53,9 @@ function App({ userState, productsState, getProducts }) {
             ) : (
               <Redirect to="/login" />
             )}
+          </Route>
+          <Route path="/:username/cart">
+            <Cart />
           </Route>
           <Route path="/product/:name">
             <ProductDetails />
