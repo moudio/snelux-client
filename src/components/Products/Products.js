@@ -5,7 +5,7 @@ import './Products.css';
 
 function Products() {
   const [allProducts, setProducts] = useState([]);
-  const [filter, setFilter] = useState([]);
+  const [searchFilter, setFilter] = useState('All');
   useEffect(() => {
     axios.get('http://localhost:3001/api/products').then((response) => {
       const { data } = response;
@@ -13,12 +13,8 @@ function Products() {
     });
   }, []);
 
-  function handleSearch() {
-    let value = document.querySelector('input[type="search"]').value;
-    const copyProducts = allProducts.filter((product) =>
-      product.name.toLowerCase().includes(value.toLowerCase())
-    );
-    setFilter(copyProducts);
+  function handleSearch(e) {
+    setFilter(e.target.value);
   }
   return (
     <div className="products" data-testid="all-products-div">
@@ -31,13 +27,19 @@ function Products() {
           onChange={(e) => handleSearch(e)}
         />
         <div className="products-content">
-          {filter.length
-            ? filter.map((product, index) => {
+          {searchFilter === 'All'
+            ? allProducts.map((product, index) => {
                 return <Product product={product} key={index} />;
               })
-            : allProducts.map((product, index) => {
-                return <Product product={product} key={index} />;
-              })}
+            : allProducts
+                .filter((product) =>
+                  product.name
+                    .toLowerCase()
+                    .includes(searchFilter.toLowerCase())
+                )
+                .map((product, index) => {
+                  return <Product product={product} key={index} />;
+                })}
         </div>
       </div>
     </div>
