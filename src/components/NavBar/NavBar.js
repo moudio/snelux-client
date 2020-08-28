@@ -61,7 +61,7 @@ const NavBar = ({ userState, handleLogout }) => (
           <li>
             <Link to="/profile">Profile</Link>
           </li>
-          <Link to={`/${userState.username}/cart`}>
+          <Link to={`/${userState.user.username}/cart`}>
             <FaShoppingCart />
           </Link>
           <li>
