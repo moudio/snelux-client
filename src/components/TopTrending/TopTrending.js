@@ -5,12 +5,13 @@ import './TopTrending.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { Link } from 'react-router-dom';
 function TopTrending({ trendings }) {
   const settings = {
     dots: true,
     infinite: true,
     speed: 1000,
-    slidesToShow: 2,
+    slidesToShow: 3,
     slidesToScroll: 1,
   };
   if (trendings.length <= 0) {
@@ -30,7 +31,9 @@ function TopTrending({ trendings }) {
             <div className="trending" key={index}>
               <img src={trending.picture.url} alt="Stan Smith" />
 
-              <h1>{trending.name}</h1>
+              <Link to={`/product/${trending.name}`}>
+                <h1>{trending.name}</h1>
+              </Link>
               <p>
                 Price:
                 {trending.price}

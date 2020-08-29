@@ -3,8 +3,9 @@ import './ProductDetails.css';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import loading from '../../pictures/loading.gif';
+import { addToCart } from '../../actions/actions';
 
-function ProductDetails({ userState, productsState }) {
+function ProductDetails({ userState, productsState, handleAddToCart }) {
   const { products } = productsState;
   const { name } = useParams();
   if (!products) {
@@ -24,7 +25,12 @@ function ProductDetails({ userState, productsState }) {
           <button className="add-to-cart-button btn btn-lg btn-info">
             Add To Cart
           </button>
-          <button className="buy-button btn btn-lg btn-warning">Buy Now</button>
+          <button
+            className="buy-button btn btn-lg btn-warning"
+            onclick={handleAddToCart}
+          >
+            Buy Now
+          </button>
         </div>
         <div className="product-image">
           <img src={picture.url} alt="" />
@@ -36,5 +42,11 @@ function ProductDetails({ userState, productsState }) {
 const mapStateToProps = (state) => ({
   userState: state.userReducer,
   productsState: state.productsReducer,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  handleAddToCart: () => {
+    dispatch(addToCart());
+  },
 });
 export default connect(mapStateToProps, null)(ProductDetails);
