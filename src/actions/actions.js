@@ -85,6 +85,7 @@ export const logout = () => (dispatch) => {
 };
 
 export const handleCategoryShow = (category) => {
+  console.log(category);
   axios
     .get(`http://localhost:3001/categories/${category}`)
     .then((response) => console.log(response));
