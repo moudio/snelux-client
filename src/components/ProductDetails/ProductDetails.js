@@ -3,7 +3,6 @@ import './ProductDetails.css';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import loading from '../../pictures/loading.gif';
-import { addToCart } from '../../actions/actions';
 
 function ProductDetails({ userState, productsState, handleAddToCart }) {
   const { products } = productsState;
@@ -45,8 +44,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  handleAddToCart: () => {
-    dispatch(addToCart());
-  },
+  // handleAddToCart: () => {
+  //   dispatch(addToCart());
+  // },
 });
 export default connect(mapStateToProps, null)(ProductDetails);

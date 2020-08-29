@@ -84,6 +84,12 @@ export const logout = () => (dispatch) => {
   });
 };
 
-export const addToCart = (product_id) => {
-  axios.post('http://localhost:3001/api/cart/', { product_id });
+export const handleCategoryShow = (category) => {
+  axios
+    .get(`http://localhost:3001/categories/${category}`)
+    .then((response) => console.log(response));
 };
+
+// export const addToCart = (product_id) => {
+//   axios.post('http://localhost:3001/api/cart/', { product_id });
+// };
