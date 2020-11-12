@@ -65,6 +65,11 @@ const NavBar = ({ userState, handleLogout }) => (
             <FaShoppingCart />
           </Link>
           <li>
+            <Link to="/create-product" className="sell-product">
+              Sell
+            </Link>
+          </li>
+          <li>
             <Link to="/login" onClick={handleLogout}>
               Logout
             </Link>

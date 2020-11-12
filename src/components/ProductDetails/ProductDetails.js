@@ -3,6 +3,7 @@ import './ProductDetails.css';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import loading from '../../pictures/loading.gif';
+import { addToCart } from '../../actions/actions';
 
 function ProductDetails({ userState, productsState, handleAddToCart }) {
   const { products } = productsState;
@@ -13,23 +14,32 @@ function ProductDetails({ userState, productsState, handleAddToCart }) {
 
   let product = products.find((product) => product.name === name);
 
-  const { description, price, picture } = product;
+  const { description, price, picture, id } = product;
+
+  const handleAddToCartFunc = (e) => {
+    const cart = {
+      product_id: id,
+      user_id: 1,
+    };
+    console.log('cart is ', cart);
+    handleAddToCart(cart);
+  };
   return (
     <div className="container">
-      <h1>Details for {product.name}</h1>
+      <h1>
+        Details for <span className="product-name">{product.name}</span>
+      </h1>
       <div className="product-image-and-content">
         <div className="product-content">
-          <p>{description}</p>
-          <p>{price}</p>
-          <button className="add-to-cart-button btn btn-lg btn-info">
+          <p className="product-description">{description}</p>
+          <p className="product-price">{price}</p>
+          <button
+            className="add-to-cart-button btn btn-lg btn-info"
+            onClick={(e) => handleAddToCartFunc(e)}
+          >
             Add To Cart
           </button>
-          <button
-            className="buy-button btn btn-lg btn-warning"
-            onclick={handleAddToCart}
-          >
-            Buy Now
-          </button>
+          <button className="buy-button btn btn-lg btn-warning">Buy Now</button>
         </div>
         <div className="product-image">
           <img src={picture.url} alt="" />
@@ -44,8 +54,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  // handleAddToCart: () => {
-  //   dispatch(addToCart());
-  // },
+  handleAddToCart: (cart) => dispatch(addToCart(cart)),
 });
-export default connect(mapStateToProps, null)(ProductDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);

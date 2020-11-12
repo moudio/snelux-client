@@ -12,7 +12,7 @@ function Category({ category, handleCategories }) {
   }
   return (
     <div className={`category ${category}`}>
-      <Link to="/categories">
+      <Link to={`/categories/${category}`}>
         <h3 onClick={(e) => handleCategoriesFunc(e)}>{category}</h3>
       </Link>
     </div>

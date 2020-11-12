@@ -84,13 +84,15 @@ export const logout = () => (dispatch) => {
   });
 };
 
-export const handleCategoryShow = (category) => {
-  console.log(category);
+export const handleCategoryShow = (category) => (dispatch) => {
+  console.log('categeroy is ', category);
   axios
-    .get(`http://localhost:3001/categories/${category}`)
+    .get(`http://localhost:3001/api/categories/${category}`)
     .then((response) => console.log(response));
 };
 
-// export const addToCart = (product_id) => {
-//   axios.post('http://localhost:3001/api/cart/', { product_id });
-// };
+export const addToCart = (cart) => (dispatch) => {
+  axios
+    .post('http://localhost:3001/api/carts/', { cart })
+    .then((response) => console.log(response));
+};
