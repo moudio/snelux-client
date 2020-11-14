@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import './Signup.css';
 import { attemptSignup } from '../../actions/actions';
@@ -6,22 +6,23 @@ import loading from '../../pictures/loading.gif';
 import { Link, Redirect } from 'react-router-dom';
 
 function Signup({ signup, userState }) {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const [telephone, setTelephone] = useState('');
   if (userState.redirectTo) {
     return <Redirect to={userState.redirectTo} />;
   }
   function handleSubmit(e) {
     e.preventDefault();
-    const username = document.querySelector('.username').value;
-    const email = document.querySelector('.email').value;
-    const password = document.querySelector('.password').value;
-    const password_confirmation = document.querySelector(
-      '.password-confirmation'
-    ).value;
+
     const user = {
       username,
       email,
       password,
-      password_confirmation,
+      passwordConfirmation,
+      telephone,
     };
     signup(user);
   }
@@ -69,6 +70,8 @@ function Signup({ signup, userState }) {
                     className="form-control username"
                     placeholder="Username *"
                     required
+                    onChange={(e) => setUsername(e.target.value)}
+                    value={username}
                   />
                 </div>
                 <div className="form-group">
@@ -76,7 +79,9 @@ function Signup({ signup, userState }) {
                     type="email"
                     className="form-control email"
                     name="email"
-                    placeholder="Your Email *"
+                    placeholder="Email *"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                     required
                   />
                 </div>
@@ -85,8 +90,10 @@ function Signup({ signup, userState }) {
                     type="password"
                     name="password"
                     className="form-control password"
-                    placeholder="Your Password *"
+                    placeholder="Password *"
                     required
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
                   />
                 </div>
                 <div className="form-group">
@@ -96,14 +103,32 @@ function Signup({ signup, userState }) {
                     className="form-control password-confirmation"
                     placeholder="Confirm Password *"
                     required
+                    onChange={(e) => setPasswordConfirmation(e.target.value)}
+                    value={passwordConfirmation}
                   />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="tel"
+                    name="telephone"
+                    className="form-control telephone"
+                    placeholder="Téléphone *"
+                    pattern="[0-9]{2} [0-9]{3} [0-9]{2} [0-9]{2}"
+                    required
+                    onChange={(e) => setTelephone(e.target.value)}
+                    value={telephone}
+                  />
+                  <small>Format: 77 123 56 78</small>
                 </div>
               </div>
             </div>
             <button type="submit" className="btnSubmit">
               Create Account
             </button>
-            <p>Or {<Link to="/login">login to your account</Link>}</p>
+            <p>
+              Or
+              <Link to="/login">login to your account</Link>
+            </p>
           </div>
         </form>
       </div>

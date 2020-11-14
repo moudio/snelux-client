@@ -4,8 +4,12 @@ import { connect } from 'react-redux';
 import { createProduct, fetchProducts } from '../../actions/actions';
 import ImageUploader from 'react-images-upload';
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
-function NewProduct({ handleCreateProduct }) {
+function NewProduct({ productsState, handleCreateProduct, userState }) {
+  const history = useHistory();
+  console.log(userState);
+  productsState.productCreated && history.replace('/products');
   const [productName, setProductName] = useState('');
   const [productPrice, setProductPrice] = useState(0);
   const [productDescription, setProductDescription] = useState('');
@@ -19,7 +23,7 @@ function NewProduct({ handleCreateProduct }) {
     formData.append('category', productCategory);
     formData.append('picture', productPicture);
     formData.append('price', productPrice);
-
+    formData.append('user_id', userState.user.id);
     handleCreateProduct(formData);
   };
 
@@ -57,14 +61,6 @@ function NewProduct({ handleCreateProduct }) {
           cols="30"
           rows="10"
         ></textarea>{' '}
-        {/* <ImageUploader
-          withIcon={true}
-          buttonText="Choose images"
-          onChange={onImageChange}
-          imgExtension={['.jpg', '.gif', '.png', '.gif']}
-          maxFileSize={5242880}
-          singleImage={true}
-        /> */}
         <input
           type="file"
           accept="image/*"
@@ -77,23 +73,13 @@ function NewProduct({ handleCreateProduct }) {
           id="productCategory"
           onChange={(e) => setProductCategory(e.target.value)}
         >
-          <option value="t-shrit">T-shirt</option>
-          <option value="shoes">Shoes</option>
-          <option value="cellphones">Cellphone</option>
-          <option value="clothing">Clothes</option>
+          <option value="t-shrit">Clothes</option>
+          <option value="shoes">Jewerly</option>
+          <option value="cellphones">Cellphones</option>
+          <option value="clothing">Furniture</option>
         </select>{' '}
         <br />
         <label htmlFor="productPicture">Image</label> <br />
-        {/* <fieldset>
-          <input
-            type="file"
-            accept="image/*"
-            multiple={false}
-            onChange={onImageChange}
-            name="picture"
-            id="productPicture"
-          />
-        </fieldset> */}
         <button type="submit" onClick={formSubmitHandle}>
           Create Product
         </button>
@@ -102,8 +88,13 @@ function NewProduct({ handleCreateProduct }) {
   );
 }
 
+const mapStateToProps = (state) => ({
+  productsState: state.productsReducer,
+  userState: state.userReducer,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   handleCreateProduct: (data) => dispatch(createProduct(data)),
 });
 
-export default connect(null, mapDispatchToProps)(NewProduct);
+export default connect(mapStateToProps, mapDispatchToProps)(NewProduct);

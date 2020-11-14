@@ -1,4 +1,8 @@
-import { FETCH_ALL_PRODUCTS_SUCCESS } from '../actions/actions';
+import {
+  CREATE_PRODUCT_SUCCESS,
+  FETCH_ALL_PRODUCTS_SUCCESS,
+  FINISH_ALL_USERS_FETCHED,
+} from '../actions/actions';
 
 const initialState = {
   products: null,
@@ -11,6 +15,18 @@ const productsReducer = (state = initialState, action) => {
         ...state,
         products: action.products,
       };
+    case CREATE_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        productCreated: true,
+      };
+
+    case FINISH_ALL_USERS_FETCHED:
+      return {
+        ...state,
+        productCreated: false,
+      };
+
     default:
       return state;
   }

@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import loading from '../../pictures/loading.gif';
 import { addToCart } from '../../actions/actions';
 
-function ProductDetails({ userState, productsState, handleAddToCart }) {
+function ProductDetails({ userState, productsState }) {
   const { products } = productsState;
   const { name } = useParams();
   if (!products) {
@@ -14,16 +14,8 @@ function ProductDetails({ userState, productsState, handleAddToCart }) {
 
   let product = products.find((product) => product.name === name);
 
-  const { description, price, picture, id } = product;
+  const { description, price, picture, id, user } = product;
 
-  const handleAddToCartFunc = (e) => {
-    const cart = {
-      product_id: id,
-      user_id: 1,
-    };
-    console.log('cart is ', cart);
-    handleAddToCart(cart);
-  };
   return (
     <div className="container">
       <h1>
@@ -33,13 +25,11 @@ function ProductDetails({ userState, productsState, handleAddToCart }) {
         <div className="product-content">
           <p className="product-description">{description}</p>
           <p className="product-price">{price}</p>
-          <button
-            className="add-to-cart-button btn btn-lg btn-info"
-            onClick={(e) => handleAddToCartFunc(e)}
-          >
-            Add To Cart
-          </button>
-          <button className="buy-button btn btn-lg btn-warning">Buy Now</button>
+
+          <div className="user_infos">
+            <p>Par: {user.username}</p>
+            <p>Appeler: {user.telephone}</p>
+          </div>
         </div>
         <div className="product-image">
           <img src={picture.url} alt="" />

@@ -8,6 +8,9 @@ export const LOGGIN_SUCCESS = 'LOGGIN_SUCCESS';
 export const LOGGIN_FAILURE = 'LOGGIN_FAILURE';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const FETCH_ALL_PRODUCTS_SUCCESS = 'FETCH_ALL_PRODUCTS_SUCCESS';
+export const CREATE_PRODUCT_SUCCESS = 'CREATE_PRODUCT_SUCCESS';
+export const ALL_USERS_FETCHED = 'ALL_USERS_FETCHED';
+export const FINISH_ALL_USERS_FETCHED = 'FINISH_ALL_USERS_FETCHED';
 
 export const fetchProducts = () => (dispatch) => {
   axios.get('http://localhost:3001/api/products').then((response) => {
@@ -97,13 +100,37 @@ export const addToCart = (cart) => (dispatch) => {
     .then((response) => console.log(response));
 };
 
-export const createProduct = (product) => (dispatch) => {
+export const createProduct = (formData) => (dispatch) => {
   fetch('http://localhost:3001/api/products/', {
     method: 'POST',
-    body: product,
+    body: formData,
   })
     .then((res) => res.json())
-    .then((re) => console.log(re))
+    .then((res) => {
+      dispatch({
+        type: CREATE_PRODUCT_SUCCESS,
+        newProduct: res.product,
+      });
+    })
 
     .catch((error) => console.log(error));
+};
+
+export const fetchUserProducts = (id = 1) => (dispatch) => {
+  axios
+    .get(`http://localhost:3001/api/users/${id}/products`)
+    .then((res) => console.log(res))
+    .catch((error) => console.log(error));
+};
+
+export const fetchUsers = () => (dispatch) => {
+  axios.get('http://localhost:3001/api/users').then((res) => {
+    dispatch({
+      type: ALL_USERS_FETCHED,
+      users: res.data,
+    });
+    dispatch({
+      type: FINISH_ALL_USERS_FETCHED,
+    });
+  });
 };

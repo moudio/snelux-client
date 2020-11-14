@@ -8,6 +8,7 @@ function Products() {
   const [searchFilter, setFilter] = useState('All');
 
   useEffect(() => {
+    console.log('useEffect called');
     axios.get('http://localhost:3001/api/products').then((response) => {
       const { data } = response;
       setProducts(data);

@@ -20,8 +20,11 @@ import NotFound from './pages/NotFound/NotFound';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import Cart from './pages/Cart/Cart';
 import NewProduct from './pages/NewProduct/NewProduct';
+import AllUsers from './AllUsers/AllUsers';
+import Footer from './Footer/Footer';
 
 function App({ userState, productsState, getProducts }) {
+  console.log(userState);
   const [trendings, setTrendings] = useState([]);
   useEffect(() => {
     getProducts();
@@ -55,20 +58,27 @@ function App({ userState, productsState, getProducts }) {
               <Redirect to="/login" />
             )}
           </Route>
+          {userState.user?.admin && (
+            <Route path="/all-users">
+              <AllUsers />
+            </Route>
+          )}
+          <Route exact path="/create-product">
+            {/* {userState.access ? <NewProduct /> : <Redirect to="/login" />} */}
+            <NewProduct />
+          </Route>
           <Route path="/:username/cart">
             <Cart />
           </Route>
           <Route path="/product/:name">
             <ProductDetails />
           </Route>
-          <Route path="/create-product">
-            <NewProduct />
-          </Route>
-          <Route path="/">
+          <Route>
             <NotFound />
           </Route>
         </Switch>
       </Router>
+      <Footer />
     </div>
   );
 }

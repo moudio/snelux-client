@@ -6,6 +6,7 @@ import {
   LOGGIN_SUCCESS,
   LOGGIN_FAILURE,
   LOGOUT_SUCCESS,
+  ALL_USERS_FETCHED,
 } from '../actions/actions';
 
 export const defaultState = {
@@ -58,6 +59,11 @@ const userReducer = (state = defaultState, action) => {
         access: false,
         redirectTo: null,
         user: null,
+      };
+    case ALL_USERS_FETCHED:
+      return {
+        ...state,
+        allUsers: action.users,
       };
     default:
       return state;
