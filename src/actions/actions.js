@@ -96,3 +96,14 @@ export const addToCart = (cart) => (dispatch) => {
     .post('http://localhost:3001/api/carts/', { cart })
     .then((response) => console.log(response));
 };
+
+export const createProduct = (product) => (dispatch) => {
+  fetch('http://localhost:3001/api/products/', {
+    method: 'POST',
+    body: product,
+  })
+    .then((res) => res.json())
+    .then((re) => console.log(re))
+
+    .catch((error) => console.log(error));
+};
