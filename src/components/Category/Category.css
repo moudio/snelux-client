@@ -29,3 +29,27 @@
   background-position: center;
   background-size: cover;
 }
+
+.category.ordinateurs {
+  background: linear-gradient(rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.877)),
+    url('../../pictures/ordinateurs.jpeg');
+  color: white;
+  background-position: center;
+  background-size: cover;
+}
+
+.category.smartphones {
+  background: linear-gradient(rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.877)),
+    url('../../pictures/smartphones.png');
+  color: white;
+  background-position: center;
+  background-size: cover;
+}
+
+.category.cars {
+  background: linear-gradient(rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.877)),
+    url('../../pictures/car.jpg');
+  color: white;
+  background-position: center;
+  background-size: cover;
+}

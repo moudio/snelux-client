@@ -73,10 +73,11 @@ function NewProduct({ productsState, handleCreateProduct, userState }) {
           id="productCategory"
           onChange={(e) => setProductCategory(e.target.value)}
         >
-          <option value="t-shrit">Clothes</option>
-          <option value="shoes">Jewerly</option>
-          <option value="cellphones">Cellphones</option>
-          <option value="clothing">Furniture</option>
+          <option value="clothes">Clothes</option>
+          <option value="smartphones">Smartphone</option>
+          <option value="ordinateurs">Ordinateur</option>
+          <option value="furniture">Furniture</option>
+          <option value="voitures">Voitures</option>
         </select>{' '}
         <br />
         <label htmlFor="productPicture">Image</label> <br />

@@ -10,7 +10,7 @@ function Product(props) {
         <div className="card rounded">
           <div className="card-image">
             <span className="card-notify-badge">Low KMS</span>
-            <span className="card-notify-year">2018</span>
+            <span className="card-notify-year">2020</span>
             <img className="img-fluid" src={picture.url} alt={name} />
           </div>
           <div className="card-image-overlay m-auto">

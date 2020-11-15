@@ -21,7 +21,8 @@ import ProductDetails from './components/ProductDetails/ProductDetails';
 import Cart from './pages/Cart/Cart';
 import NewProduct from './pages/NewProduct/NewProduct';
 import AllUsers from './AllUsers/AllUsers';
-import Footer from './Footer/Footer';
+import Footer from './components/Footer/Footer';
+import ShowCategories from './pages/ShowCategories/ShowCategories';
 
 function App({ userState, productsState, getProducts }) {
   console.log(userState);
@@ -72,6 +73,9 @@ function App({ userState, productsState, getProducts }) {
           </Route>
           <Route path="/product/:name">
             <ProductDetails />
+          </Route>
+          <Route path="/categories/:category">
+            <ShowCategories />
           </Route>
           <Route>
             <NotFound />
