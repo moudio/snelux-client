@@ -1,0 +1,22 @@
+.produits-similaires {
+  width: 100%;
+}
+
+.related-product {
+  text-align: center;
+  margin: 0 20px;
+}
+
+.related-product h1 {
+  font-size: 30px;
+}
+
+.related-product img {
+  width: 180px;
+  margin: auto;
+}
+
+.slick-prev::before,
+.slick-next::before {
+  color: black !important;
+}

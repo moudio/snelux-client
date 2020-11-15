@@ -24,7 +24,7 @@ export const Login = ({ tryLogin, userState }) => {
 
   return (
     <div className="login-div-parent">
-      <h1 className="login-account-title">Login to your account</h1>
+      <h1 className="login-account-title">Connectez-vous à votre compte</h1>
       <div className="form-and-background-container container">
         <div className="row">
           <div className="col-md-8 inner-form-container">
@@ -32,7 +32,7 @@ export const Login = ({ tryLogin, userState }) => {
               <div className="form-group">
                 {userState.isLogginIn ? (
                   <div className="login-animation-div">
-                    <h2 className="login-animation-text">Please wait ...</h2>
+                    <h2 className="login-animation-text">Chargement...</h2>
                     <img
                       src={loading}
                       alt="loading"
@@ -53,23 +53,23 @@ export const Login = ({ tryLogin, userState }) => {
                 ) : (
                   ''
                 )}
-                <label htmlFor="username">Username</label>
+                <label htmlFor="username">Pseudo</label>
                 <input
                   type="text"
                   className="form-control"
                   id="username"
                   aria-describedby="username"
-                  placeholder="Enter usename"
+                  placeholder="Votre pseudo"
                   required
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputPassword1">Password</label>
+                <label htmlFor="exampleInputPassword1">Mot de passe</label>
                 <input
                   type="password"
                   className="form-control"
                   id="password"
-                  placeholder="Password"
+                  placeholder="Mot de passe"
                   required
                 />
               </div>
@@ -77,7 +77,7 @@ export const Login = ({ tryLogin, userState }) => {
                 Login
               </button>
               <p className="create-account">
-                Or you can {<Link to="/signup">Create an account</Link>}
+                Ou vous pouvez {<Link to="/signup">Créer un compte</Link>}
               </p>
             </form>
           </div>

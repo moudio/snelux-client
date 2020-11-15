@@ -46,7 +46,7 @@
   background-size: cover;
 }
 
-.category.cars {
+.category.voitures {
   background: linear-gradient(rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.877)),
     url('../../pictures/car.jpg');
   color: white;

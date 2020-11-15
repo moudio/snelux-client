@@ -33,9 +33,9 @@ function Signup({ signup, userState }) {
         <form className="form" onSubmit={(e) => handleSubmit(e)}>
           <div className="note">
             {userState.isSigning ? (
-              <p>Creating your account...</p>
+              <p>Création de votre compte...</p>
             ) : (
-              <p>Create a new account</p>
+              <p>Créez un nouveau compte</p>
             )}
           </div>
           {userState.isSigning ? (
@@ -66,9 +66,9 @@ function Signup({ signup, userState }) {
                 <div className="form-group">
                   <input
                     type="text"
-                    name="username"
+                    name="pseudo"
                     className="form-control username"
-                    placeholder="Username *"
+                    placeholder="Pseudo *"
                     required
                     onChange={(e) => setUsername(e.target.value)}
                     value={username}
@@ -90,7 +90,7 @@ function Signup({ signup, userState }) {
                     type="password"
                     name="password"
                     className="form-control password"
-                    placeholder="Password *"
+                    placeholder="Mot de passe *"
                     required
                     onChange={(e) => setPassword(e.target.value)}
                     value={password}
@@ -101,7 +101,7 @@ function Signup({ signup, userState }) {
                     type="password"
                     name="password-confirmation"
                     className="form-control password-confirmation"
-                    placeholder="Confirm Password *"
+                    placeholder="Confirmation du mot de passe *"
                     required
                     onChange={(e) => setPasswordConfirmation(e.target.value)}
                     value={passwordConfirmation}
@@ -123,11 +123,11 @@ function Signup({ signup, userState }) {
               </div>
             </div>
             <button type="submit" className="btnSubmit">
-              Create Account
+              Créer Compte
             </button>
             <p>
-              Or
-              <Link to="/login">login to your account</Link>
+              Ou
+              <Link to="/login">Vous Connecter </Link>
             </p>
           </div>
         </form>

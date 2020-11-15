@@ -20,7 +20,7 @@ function Products() {
   }
   return (
     <div className="products" data-testid="all-products-div">
-      <h1>{allProducts ? 'All products' : 'Fetching Products...'}</h1>
+      <h1>{allProducts ? 'Tous Les Produits' : 'Patientez...'}</h1>
       <div className="products">
         <input
           type="search"

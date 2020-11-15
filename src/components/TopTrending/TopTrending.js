@@ -24,7 +24,7 @@ function TopTrending({ trendings }) {
   }
   return (
     <div className="trendings">
-      <h1> Trending products</h1>
+      <h1>Notre Sélection </h1>
       <div className="trending-products" data-testid="trending-products">
         <Slider {...settings}>
           {trendings.map((trending, index) => (
@@ -35,8 +35,8 @@ function TopTrending({ trendings }) {
                 <h1>{trending.name}</h1>
               </Link>
               <p>
-                Price:
-                {trending.price}
+                Prix:
+                {trending.price} Cfa
               </p>
             </div>
           ))}

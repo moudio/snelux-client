@@ -9,10 +9,10 @@ function Welcome({ trendings }) {
     <div>
       <header data-testid="header" className="welcome-header">
         <div className="welcome-header-content">
-          <h1>The Place To Be For Luxury</h1>
-          <p>Get The Finest Products at The Finest Price</p>
+          <h1>Trouver ce qu'il vous faut</h1>
+          <p>Les meilleurs produits aux meilleurs prix</p>
           <Link to="/" className="welcome-header-shop-now">
-            Shop Now
+            Acheter Maintenant
           </Link>
         </div>
       </header>

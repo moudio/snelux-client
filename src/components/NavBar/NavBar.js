@@ -14,18 +14,18 @@ const NavBar = ({ userState, handleLogout }) => {
         <li>
           {' '}
           <Link to="/" data-testid="home">
-            Home
+            Accueil
           </Link>
         </li>
         <li>
           <Link to="/products" data-testid="products-nav-link">
-            Products
+            Produits
           </Link>
         </li>
         {!userState.access ? (
           <li>
             <Link to="/login" data-testid="login">
-              Login
+              Connexion
             </Link>
           </li>
         ) : (
@@ -43,7 +43,7 @@ const NavBar = ({ userState, handleLogout }) => {
         {!userState.access ? (
           <li>
             <Link to="/signup" data-testid="signup">
-              Register
+              Créer Compte
             </Link>
           </li>
         ) : (
@@ -51,12 +51,12 @@ const NavBar = ({ userState, handleLogout }) => {
         )}
         {user?.admin && (
           <li>
-            <Link to="/all-users">All Users</Link>
+            <Link to="/all-users">Utilisateurs</Link>
           </li>
         )}
         {userState.access ? (
           <li>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/dashboard">Espace Personnel</Link>
           </li>
         ) : (
           ''
@@ -65,19 +65,17 @@ const NavBar = ({ userState, handleLogout }) => {
         {userState.access ? (
           <>
             <li>
-              <Link to="/profile">Profile</Link>
+              <Link to="/profile">Profil</Link>
             </li>
-            <Link to={`/${userState.user.username}/cart`}>
-              <FaShoppingCart />
-            </Link>
+
             <li>
               <Link to="/create-product" className="sell-product">
-                Sell
+                Vendre
               </Link>
             </li>
             <li>
               <Link to="/login" onClick={handleLogout}>
-                Logout
+                Déconnexion
               </Link>
             </li>
           </>

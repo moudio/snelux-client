@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import loading from '../../pictures/loading.gif';
 import { addToCart } from '../../actions/actions';
+import RelatedProducts from '../../RelatedProducts/RelatedProducts';
 
 function ProductDetails({ userState, productsState }) {
   const { products } = productsState;
@@ -14,12 +15,12 @@ function ProductDetails({ userState, productsState }) {
 
   let product = products.find((product) => product.name === name);
 
-  const { description, price, picture, id, user } = product;
+  const { description, price, picture, id, user, category } = product;
 
   return (
     <div className="container">
       <h1>
-        Details for <span className="product-name">{product.name}</span>
+        Détails Pour <span className="product-name">{product.name}</span>
       </h1>
       <div className="product-image-and-content">
         <div className="product-content">
@@ -35,9 +36,11 @@ function ProductDetails({ userState, productsState }) {
           <img src={picture.url} alt="" />
         </div>
       </div>
+      <RelatedProducts category={category} />
     </div>
   );
 }
+
 const mapStateToProps = (state) => ({
   userState: state.userReducer,
   productsState: state.productsReducer,

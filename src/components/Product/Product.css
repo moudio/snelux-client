@@ -89,3 +89,12 @@
 .product .card {
   margin: 0 25px;
 }
+
+.card-image {
+  width: 200px;
+}
+
+.img-fluid {
+  width: 100%;
+  height: auto;
+}

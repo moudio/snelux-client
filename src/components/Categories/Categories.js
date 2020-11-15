@@ -7,10 +7,10 @@ function Categories() {
     <div className="categories" data-testid="categories">
       <h2>Categories</h2>
       <div className="categories-cards">
-        <Category category="cars" />
+        <Category category="voitures" />
         <Category category="smartphones" />
         <Category category="ordinateurs" />
-        <Category category="clothes" />
+        <Category category="vêtements" />
       </div>
     </div>
   );
