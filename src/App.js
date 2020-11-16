@@ -18,11 +18,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Dashboard from './pages/Dashboard/Dashboard';
 import NotFound from './pages/NotFound/NotFound';
 import ProductDetails from './components/ProductDetails/ProductDetails';
-import Cart from './pages/Cart/Cart';
 import NewProduct from './pages/NewProduct/NewProduct';
-import AllUsers from './AllUsers/AllUsers';
 import Footer from './components/Footer/Footer';
 import ShowCategories from './pages/ShowCategories/ShowCategories';
+import Profil from './pages/Profil/Profil';
+import AllUsers from './pages/AllUsers/AllUsers';
+import AllProductsAdmin from './pages/AllProductsAdmin/AllProductsAdmin';
 
 function App({ userState, productsState, getProducts }) {
   console.log(userState);
@@ -64,13 +65,21 @@ function App({ userState, productsState, getProducts }) {
               <AllUsers />
             </Route>
           )}
+          {userState.user?.admin && (
+            <Route path="/all-products">
+              <AllProductsAdmin />
+            </Route>
+          )}
+          {userState.access && (
+            <Route path="/:username/profil">
+              <Profil />
+            </Route>
+          )}
           <Route exact path="/create-product">
             {/* {userState.access ? <NewProduct /> : <Redirect to="/login" />} */}
             <NewProduct />
           </Route>
-          <Route path="/:username/cart">
-            <Cart />
-          </Route>
+
           <Route path="/product/:name">
             <ProductDetails />
           </Route>

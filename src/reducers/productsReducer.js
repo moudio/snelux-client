@@ -1,7 +1,7 @@
 import {
   CREATE_PRODUCT_SUCCESS,
   FETCH_ALL_PRODUCTS_SUCCESS,
-  FINISH_ALL_USERS_FETCHED,
+  FINISH_PRODUCT_CREATED,
 } from '../actions/actions';
 
 const initialState = {
@@ -21,7 +21,7 @@ const productsReducer = (state = initialState, action) => {
         productCreated: true,
       };
 
-    case FINISH_ALL_USERS_FETCHED:
+    case FINISH_PRODUCT_CREATED:
       return {
         ...state,
         productCreated: false,

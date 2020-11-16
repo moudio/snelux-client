@@ -10,7 +10,7 @@ export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const FETCH_ALL_PRODUCTS_SUCCESS = 'FETCH_ALL_PRODUCTS_SUCCESS';
 export const CREATE_PRODUCT_SUCCESS = 'CREATE_PRODUCT_SUCCESS';
 export const ALL_USERS_FETCHED = 'ALL_USERS_FETCHED';
-export const FINISH_ALL_USERS_FETCHED = 'FINISH_ALL_USERS_FETCHED';
+export const FINISH_PRODUCT_CREATED = 'FINISH_PRODUCT_CREATED';
 
 export const fetchProducts = () => (dispatch) => {
   axios.get('http://localhost:3001/api/products').then((response) => {
@@ -94,12 +94,6 @@ export const handleCategoryShow = (category) => (dispatch) => {
     .then((response) => console.log(response));
 };
 
-export const addToCart = (cart) => (dispatch) => {
-  axios
-    .post('http://localhost:3001/api/carts/', { cart })
-    .then((response) => console.log(response));
-};
-
 export const createProduct = (formData) => (dispatch) => {
   fetch('http://localhost:3001/api/products/', {
     method: 'POST',
@@ -110,6 +104,9 @@ export const createProduct = (formData) => (dispatch) => {
       dispatch({
         type: CREATE_PRODUCT_SUCCESS,
         newProduct: res.product,
+      });
+      dispatch({
+        type: FINISH_PRODUCT_CREATED,
       });
     })
 
@@ -128,9 +125,6 @@ export const fetchUsers = () => (dispatch) => {
     dispatch({
       type: ALL_USERS_FETCHED,
       users: res.data,
-    });
-    dispatch({
-      type: FINISH_ALL_USERS_FETCHED,
     });
   });
 };

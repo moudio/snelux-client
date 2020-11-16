@@ -3,7 +3,6 @@ import './ProductDetails.css';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import loading from '../../pictures/loading.gif';
-import { addToCart } from '../../actions/actions';
 import RelatedProducts from '../../RelatedProducts/RelatedProducts';
 
 function ProductDetails({ userState, productsState }) {
@@ -46,7 +45,5 @@ const mapStateToProps = (state) => ({
   productsState: state.productsReducer,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  handleAddToCart: (cart) => dispatch(addToCart(cart)),
-});
+const mapDispatchToProps = (dispatch) => ({});
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);

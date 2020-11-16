@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Login.css';
 import { attemptLogin } from '../../actions/actions';
-import FormBackground from '../../pictures/form_background.jpeg';
 import { connect } from 'react-redux';
 import loading from '../../pictures/loading.gif';
 import { Link, Redirect } from 'react-router-dom';
@@ -74,7 +73,7 @@ export const Login = ({ tryLogin, userState }) => {
                 />
               </div>
               <button type="submit" className="btn btn-primary">
-                Login
+                Connexion
               </button>
               <p className="create-account">
                 Ou vous pouvez {<Link to="/signup">Créer un compte</Link>}

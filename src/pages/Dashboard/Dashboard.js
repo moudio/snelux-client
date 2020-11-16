@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import DashboardNav from './DashboardNav/DashboardNav';
 import axios from 'axios';
 import Product from '../../components/Product/Product';
+import './Dashboard.css';
 
 function Dashboard({ user }) {
   const { username, email, id } = user;
@@ -16,9 +17,11 @@ function Dashboard({ user }) {
     <>
       <DashboardNav />
       Bienvienue {username}
-      {userProducts.map((userProduct) => (
-        <Product product={userProduct} />
-      ))}
+      <div className="user-products">
+        {userProducts.map((userProduct) => (
+          <Product product={userProduct} />
+        ))}
+      </div>
     </>
   );
 }

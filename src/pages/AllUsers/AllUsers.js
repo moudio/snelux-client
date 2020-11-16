@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { fetchUsers } from '../actions/actions';
+import { fetchUsers } from '../../actions/actions';
 import axios from 'axios';
 import './AllUsers.css';
 function AllUsers({ userState, fetchUsers }) {

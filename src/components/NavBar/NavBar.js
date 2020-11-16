@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { FaShoppingCart } from 'react-icons/fa';
 import { logout } from '../../actions/actions';
 import './NavBar.css';
 
@@ -31,11 +30,16 @@ const NavBar = ({ userState, handleLogout }) => {
         ) : (
           ''
         )}
+        {user?.admin && (
+          <li>
+            <Link to="all-products">Gérer produits</Link>
+          </li>
+        )}
       </ul>
       <ul className="center-nav">
         <li>
           <Link to="/" className="home-logo">
-            SneLux
+            Dakar Lux
           </Link>
         </li>
       </ul>
@@ -65,7 +69,7 @@ const NavBar = ({ userState, handleLogout }) => {
         {userState.access ? (
           <>
             <li>
-              <Link to="/profile">Profil</Link>
+              <Link to={`/${user.username}/profil`}>Profil</Link>
             </li>
 
             <li>
